@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SpotifyService} from '../../services/spotify.service'; 
+import {Artist} from '../../../Artist'; 
 
 @Component({
   selector: 'search',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+    searchStr: string;
+    searchRes: Artist[];
 
-  constructor() { }
+    constructor(private _spotifyService:SpotifyService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
+    searchMusic() {
+        this._spotifyService.searchMusic(this.searchStr)
+          .subscribe(res => {
+            this.searchRes = res.artists.items;
+          })
+    }
 }
