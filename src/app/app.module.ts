@@ -11,6 +11,8 @@ import { appRouterProviders} from './app.routes';
 import {SpotifyService} from './services/spotify.service';
 import { Artist } from '../Artist';
 import { ArtistComponent } from './components/artist/artist.component';
+import { AlbumComponent } from './components/album/album.component';
+import { Album } from '../Album';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ArtistComponent } from './components/artist/artist.component';
     AboutComponent,
     SearchComponent,
     ArtistComponent,
-    ArtistComponent
+    ArtistComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
